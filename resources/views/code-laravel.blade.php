@@ -1,13 +1,18 @@
 <div class="container-fluid my-5">
     <div class="row justify-content-center">
         <div class="col-lg-4 col-md-5 col-sm-12">
-            <div class="card" id="laravel">
+            <div class="card mt-1" id="laravel">
                 <div class="card-header">
                     CRUD - Laravel
                 </div>
                 @if(session()->has('success'))
                     <div class="alert alert-success mt-1">
                         {{ session()->get('success') }}
+                    </div>
+                @endif
+                @if(session()->has('danger'))
+                    <div class="alert alert-danger mt-1">
+                        {{ session()->get('danger') }}
                     </div>
                 @endif
                 <div class="card-body">

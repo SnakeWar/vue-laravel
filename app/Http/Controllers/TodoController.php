@@ -75,8 +75,9 @@ class TodoController extends Controller
     public function destroy($id)
     {
         $todo = $this->todo->findOrFail($id);
+
         if($todo->destroy($id)){
-            return redirect('/')->with('success', 'Excluído com sucesso');
+            return redirect('/')->with('danger', 'Excluído com sucesso');
         }else
         {
             return redirect('/')->with('fail', 'Erro ao excluir');
