@@ -8,7 +8,8 @@ php artisan storage:link
 php artisan key:generate
 php artisan migrate
 npm install
+npm run dev
 E inicie usando:
 php artisan serve
 
-Acesse no navegador https://localhost:8000
+Acesse no navegador https://localhost:8000                

@@ -107,7 +107,7 @@
         },
         methods: {
             loadPosts: function () {
-                axios.get('/api/todos')
+                axios.get('/public/api/todos')
                     .then((response) => {
                         this.posts = response.data.data
                     })
@@ -118,7 +118,7 @@
             savePost: function () {
 
                 console.log('dentro')
-                axios.post('/api/todos/store', {
+                axios.post('/public/api/todos/store', {
                     name: this.form.name,
                     date: this.form.date
                 })
@@ -139,7 +139,7 @@
                     });
             },
             editForm: function (id){
-                axios.get('/api/todos/'+id)
+                axios.get('/public/api/todos/'+id)
                     .then((response) => {
                         console.log(response.data);
                         this.update.name = response.data.name
@@ -152,7 +152,7 @@
             },
             updatePost: function () {
                 console.log('atualizar')
-                axios.put('/api/todos/'+this.update.id, {
+                axios.put('/public/api/todos/'+this.update.id, {
                     name: this.update.name,
                     date: this.update.date
                 })
@@ -173,7 +173,7 @@
                     });
             },
             deletePost: function (id) {
-                axios.delete('/api/todos/'+id)
+                axios.delete('/public/api/todos/'+id)
                     .then((response) => {
                         console.log(response.data);
                         if(response.data === 'Deletado')

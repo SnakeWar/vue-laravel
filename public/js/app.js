@@ -2178,7 +2178,7 @@ __webpack_require__.r(__webpack_exports__);
     loadPosts: function loadPosts() {
       var _this = this;
 
-      axios.get('/api/todos').then(function (response) {
+      axios.get('/public/api/todos').then(function (response) {
         _this.posts = response.data.data;
       })["catch"](function (error) {
         console.log(error);
@@ -2188,7 +2188,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       console.log('dentro');
-      axios.post('/api/todos/store', {
+      axios.post('/public/api/todos/store', {
         name: this.form.name,
         date: this.form.date
       }).then(function (response) {
@@ -2209,7 +2209,7 @@ __webpack_require__.r(__webpack_exports__);
     editForm: function editForm(id) {
       var _this3 = this;
 
-      axios.get('/api/todos/' + id).then(function (response) {
+      axios.get('/public/api/todos/' + id).then(function (response) {
         console.log(response.data);
         _this3.update.name = response.data.name;
         _this3.update.date = _this3.dateFormatDb(response.data.date);
@@ -2222,7 +2222,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       console.log('atualizar');
-      axios.put('/api/todos/' + this.update.id, {
+      axios.put('/public/api/todos/' + this.update.id, {
         name: this.update.name,
         date: this.update.date
       }).then(function (response) {
@@ -2243,7 +2243,7 @@ __webpack_require__.r(__webpack_exports__);
     deletePost: function deletePost(id) {
       var _this5 = this;
 
-      axios["delete"]('/api/todos/' + id).then(function (response) {
+      axios["delete"]('/public/api/todos/' + id).then(function (response) {
         console.log(response.data);
 
         if (response.data === 'Deletado') {
