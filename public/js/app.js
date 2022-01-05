@@ -2201,6 +2201,9 @@ __webpack_require__.r(__webpack_exports__);
           }, 3000); // alert('Salvo');
         }
 
+        _this2.form.name = '';
+        _this2.form.date = '';
+
         _this2.loadPosts();
       })["catch"](function (error) {
         console.log(error);

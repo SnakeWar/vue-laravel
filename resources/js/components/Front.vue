@@ -132,6 +132,8 @@
                             }, 3000);
                             // alert('Salvo');
                         }
+                        this.form.name = ''
+                        this.form.date = ''
                         this.loadPosts();
                     })
                     .catch(function (error) {
