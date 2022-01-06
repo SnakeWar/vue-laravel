@@ -28,49 +28,64 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-7 col-sm-12">
-                <div class="card mt-1" v-for="(val, index) in posts" :key="index">
-                    <div class="card-header">
-                        {{ dateFormat(val.date) }}
-                    </div>
-                    <div class="card-body d-flex justify-content-between">
-                        <span>{{index+1}} - {{val.name}}</span>
-                        <div class="d-flex justify-content-between">
-                            <button class="btn btn-warning mr-1"  data-bs-toggle="modal" data-bs-target="#modal" v-on:click="editForm(val.id)" ><i class="far fa-edit" ></i></button>
-                            <button class="btn btn-danger" v-on:click="deletePost(val.id)">
-                                <i class="far fa-trash-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal Vue</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tarefa</th>
+                        <th scope="col">Data</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(val, index) in posts" :key="index">
+                        <th scope="row">{{index+1}}</th>
+                        <td>{{val.id}}</td>
+                        <td>{{val.name}}</td>
+                        <td>{{ dateFormat(val.date) }}</td>
+                        <td>
+                            <div class="d-flex justify-content-start">
+                                <button class="btn btn-warning mr-1"  data-bs-toggle="modal" data-bs-target="#modal" v-on:click="editForm(val.id)" >
+                                    <i class="far fa-edit" ></i>
+                                </button>
+                                <button class="btn btn-danger" v-on:click="deletePost(val.id)">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- Modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal Vue</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-warning mt-1" v-if="updatingSuccessful">
+                                    {{updated}}
                                 </div>
-                                <div class="modal-body">
-                                    <div class="alert alert-warning mt-1" v-if="updatingSuccessful">
-                                        {{updated}}
+                                <form>
+                                    <div class="form-group">
+                                        <input type="hidden" v-model="update.id">
+                                        <input class="form-control form-control-lg" type="text" v-model="update.name">
                                     </div>
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="hidden" v-model="update.id">
-                                            <input class="form-control form-control-lg" type="text" v-model="update.name">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control form-control-lg" type="date" v-model="update.date">
-                                        </div>
-                                        <a v-on:click="updatePost" class="btn btn-outline-primary">
-                                            Atualizar
-                                        </a>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <div class="form-group">
+                                        <input class="form-control form-control-lg" type="date" v-model="update.date">
+                                    </div>
+                                    <a v-on:click="updatePost" class="btn btn-outline-primary">
+                                        Atualizar
+                                    </a>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                                </div>
                             </div>
                         </div>
                     </div>

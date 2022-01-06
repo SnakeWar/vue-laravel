@@ -2149,6 +2149,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Front",
@@ -38280,198 +38295,203 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-lg-8 col-md-7 col-sm-12" },
-        _vm._l(_vm.posts, function (val, index) {
-          return _c("div", { key: index, staticClass: "card mt-1" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.dateFormat(val.date)) +
-                  "\n                "
-              ),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-body d-flex justify-content-between" },
-              [
-                _c("span", [
-                  _vm._v(_vm._s(index + 1) + " - " + _vm._s(val.name)),
+      _c("div", { staticClass: "col-lg-8 col-md-7 col-sm-12" }, [
+        _c("table", { staticClass: "table" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.posts, function (val, index) {
+              return _c("tr", { key: index }, [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(index + 1)),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "d-flex justify-content-between" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-warning mr-1",
-                      attrs: {
-                        "data-bs-toggle": "modal",
-                        "data-bs-target": "#modal",
-                      },
-                      on: {
-                        click: function ($event) {
-                          return _vm.editForm(val.id)
+                _c("td", [_vm._v(_vm._s(val.id))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(val.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.dateFormat(val.date)))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("div", { staticClass: "d-flex justify-content-start" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning mr-1",
+                        attrs: {
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#modal",
                         },
-                      },
-                    },
-                    [_c("i", { staticClass: "far fa-edit" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger",
-                      on: {
-                        click: function ($event) {
-                          return _vm.deletePost(val.id)
-                        },
-                      },
-                    },
-                    [_c("i", { staticClass: "far fa-trash-alt" })]
-                  ),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "modal fade",
-                attrs: {
-                  id: "modal",
-                  tabindex: "-1",
-                  "aria-labelledby": "exampleModalLabel",
-                  "aria-hidden": "true",
-                },
-              },
-              [
-                _c("div", { staticClass: "modal-dialog" }, [
-                  _c("div", { staticClass: "modal-content" }, [
-                    _vm._m(0, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "modal-body" }, [
-                      _vm.updatingSuccessful
-                        ? _c(
-                            "div",
-                            { staticClass: "alert alert-warning mt-1" },
-                            [
-                              _vm._v(
-                                "\n                                    " +
-                                  _vm._s(_vm.updated) +
-                                  "\n                                "
-                              ),
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("form", [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.update.id,
-                                expression: "update.id",
-                              },
-                            ],
-                            attrs: { type: "hidden" },
-                            domProps: { value: _vm.update.id },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(_vm.update, "id", $event.target.value)
-                              },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.update.name,
-                                expression: "update.name",
-                              },
-                            ],
-                            staticClass: "form-control form-control-lg",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.update.name },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.update,
-                                  "name",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.update.date,
-                                expression: "update.date",
-                              },
-                            ],
-                            staticClass: "form-control form-control-lg",
-                            attrs: { type: "date" },
-                            domProps: { value: _vm.update.date },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.update,
-                                  "date",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-outline-primary",
-                            on: { click: _vm.updatePost },
+                        on: {
+                          click: function ($event) {
+                            return _vm.editForm(val.id)
                           },
-                          [
-                            _vm._v(
-                              "\n                                        Atualizar\n                                    "
-                            ),
-                          ]
-                        ),
-                      ]),
-                    ]),
+                        },
+                      },
+                      [_c("i", { staticClass: "far fa-edit" })]
+                    ),
                     _vm._v(" "),
-                    _vm._m(1, true),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function ($event) {
+                            return _vm.deletePost(val.id)
+                          },
+                        },
+                      },
+                      [_c("i", { staticClass: "far fa-trash-alt" })]
+                    ),
                   ]),
                 ]),
-              ]
-            ),
-          ])
-        }),
-        0
-      ),
+              ])
+            }),
+            0
+          ),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "modal",
+              tabindex: "-1",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true",
+            },
+          },
+          [
+            _c("div", { staticClass: "modal-dialog" }, [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _vm.updatingSuccessful
+                    ? _c("div", { staticClass: "alert alert-warning mt-1" }, [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.updated) +
+                            "\n                            "
+                        ),
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("form", [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.update.id,
+                            expression: "update.id",
+                          },
+                        ],
+                        attrs: { type: "hidden" },
+                        domProps: { value: _vm.update.id },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.update, "id", $event.target.value)
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.update.name,
+                            expression: "update.name",
+                          },
+                        ],
+                        staticClass: "form-control form-control-lg",
+                        attrs: { type: "text" },
+                        domProps: { value: _vm.update.name },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.update, "name", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.update.date,
+                            expression: "update.date",
+                          },
+                        ],
+                        staticClass: "form-control form-control-lg",
+                        attrs: { type: "date" },
+                        domProps: { value: _vm.update.date },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.update, "date", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-outline-primary",
+                        on: { click: _vm.updatePost },
+                      },
+                      [
+                        _vm._v(
+                          "\n                                    Atualizar\n                                "
+                        ),
+                      ]
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(2),
+              ]),
+            ]),
+          ]
+        ),
+      ]),
     ]),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Tarefa")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Data")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Ações")]),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
